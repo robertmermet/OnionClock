@@ -225,10 +225,17 @@ window.addEventListener('load', function load() {
         second = (second * Math.PI / 30) + (millisec * Math.PI / (30 * 1000));
         drawHand(second, radius * .03, -radius * .23);
         // Draw crescent moon
+        ctx.fillStyle = '#0073b5';
         ctx.beginPath();
         ctx.rotate(second);
-        ctx.arc(0, radius * .04, radius * .012, .7 * Math.PI, 2.3 * Math.PI);
-        ctx.stroke();
+        ctx.arc(0, radius * .04, radius * .012, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.rotate(-second);
+        ctx.fillStyle = '#fff';
+        ctx.beginPath();
+        ctx.rotate(second);
+        ctx.arc(0, radius * .045, radius * .009, 0, 2 * Math.PI);
+        ctx.fill();
         ctx.rotate(-second);
     }
 
